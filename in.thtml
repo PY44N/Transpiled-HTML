@@ -1,0 +1,4 @@
+a(class=hi, [
+    p(class=text, "Hello world!")
+    button("Press me")
+])
