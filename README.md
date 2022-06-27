@@ -4,4 +4,5 @@ A transpiled language that removes a lot of the boilerplate from html
 
 ### TODO
 
-- [ ] Aliases for stupidly named HTML functions (link for a)
+- [x] Aliases for stupidly named HTML functions (link for a)
+- [ ] Rework how children work to allow for more than a single parent
