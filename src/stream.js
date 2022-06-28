@@ -12,7 +12,6 @@ class Readstream {
     let ret = this.text.substring(this.pos, this.pos + count);
     this.pos += count;
     this.atEnd = this.pos == this.text.length;
-    console.log(ret);
     return ret;
   }
 

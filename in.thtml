@@ -1,5 +1,7 @@
-a(class=hi, [
-    p(class=text, "Hello world!")
-    button("Press me")
-    link(href=https://google.com, "Google")
+div([
+    div(class=hi, [
+        p(class=text, "Hello world!")
+        button("Press me")
+        link(href=https://google.com, "Google")
+    ])
 ])

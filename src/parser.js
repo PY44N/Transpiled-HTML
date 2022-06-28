@@ -40,8 +40,6 @@ function parse(stream) {
   }
   stream.read(); // )
 
-  console.log(element);
-
   ast.push(element);
   return ast;
 }
