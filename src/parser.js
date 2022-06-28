@@ -18,7 +18,9 @@ function parse(stream) {
       let propName = stream.readUntil(["=", ",", ")"]);
       if (stream.nextChar() == "=") {
         stream.read(); // =
-        let propValue = stream.readUntil([",", ")"]);
+        stream.read(); // "
+        let propValue = stream.readUntil(['"']);
+        stream.read(); // "
         if (stream.nextChar() == ",") stream.read();
 
         element.properties[propName] = propValue;

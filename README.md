@@ -5,5 +5,5 @@ A transpiled language that removes a lot of the boilerplate from html
 ### TODO
 
 - [x] Aliases for stupidly named HTML functions (link for a)
-- [ ] Rework how children work to allow for more than a single parent
-- [ ] Fix parsing with function calls in onclick events
+- [x] Rework how children work to allow for more than a single parent
+- [x] Fix parsing with function calls in onclick events

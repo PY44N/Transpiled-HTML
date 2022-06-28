@@ -1,5 +1,8 @@
+head([
+    title("Counter App")
+    script(src="script.js")
+])
 body([
-    script(src=script.js)
-    p(id=counter, "Hello world!")
-    button(onclick=increment, "Press me")
+    text(id="counter", "The count is: 0")
+    button(onclick="increment()", "Press me")
 ])
