@@ -1,7 +1,5 @@
-div([
-    div(class=hi, [
-        p(class=text, "Hello world!")
-        button("Press me")
-        link(href=https://google.com, "Google")
-    ])
+body([
+    script(src=script.js)
+    p(id=counter, "Hello world!")
+    button(onclick=increment, "Press me")
 ])
