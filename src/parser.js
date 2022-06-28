@@ -14,7 +14,7 @@ function parse(stream) {
   stream.read(); // (
 
   while (stream.nextChar() != ")") {
-    if (stream.nextChar() != "[") {
+    if (stream.nextChar() != "[" && stream.nextChar() != "{") {
       let propName = stream.readUntil(["=", ",", ")"]);
       if (stream.nextChar() == "=") {
         stream.read(); // =
@@ -30,7 +30,7 @@ function parse(stream) {
       }
     } else {
       stream.read(); // [
-      while (stream.nextChar() != "]") {
+      while (stream.nextChar() != "]" && stream.nextChar() != "}") {
         let elements = parse(stream);
 
         for (let v of elements) {

@@ -1,7 +1,7 @@
-head([
+head({
     title("Counter App")
     script(src="script.js")
-])
+})
 body([
     text(id="counter", "The count is: 0")
     button(onclick="increment()", "Press me")
