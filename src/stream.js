@@ -28,6 +28,15 @@ class Readstream {
   nextChar() {
     return this.text[this.pos];
   }
+
+  assertRead(chars) {
+    let text = this.read();
+    if (!chars.includes(text)) {
+      throw new Error(
+        `Invalid char, expected: ${chars.join(" or ")} got: ${text}`
+      );
+    }
+  }
 }
 
 module.exports = Readstream;

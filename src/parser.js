@@ -11,16 +11,16 @@ function parse(stream) {
   };
 
   element.tag = stream.readUntil(["("]);
-  stream.read(); // (
+  stream.assertRead(["("]);
 
   while (stream.nextChar() != ")") {
     if (stream.nextChar() != "[" && stream.nextChar() != "{") {
       let propName = stream.readUntil(["=", ",", ")"]);
       if (stream.nextChar() == "=") {
-        stream.read(); // =
-        stream.read(); // "
+        stream.assertRead(["="]); // =
+        stream.assertRead(['"']); // "
         let propValue = stream.readUntil(['"']);
-        stream.read(); // "
+        stream.assertRead(['"']); // "
         if (stream.nextChar() == ",") stream.read();
 
         element.properties[propName] = propValue;
@@ -29,7 +29,7 @@ function parse(stream) {
         element.text = propName.slice(1, -1);
       }
     } else {
-      stream.read(); // [
+      stream.assertRead(["[", "{"]); // [
       while (stream.nextChar() != "]" && stream.nextChar() != "}") {
         let elements = parse(stream);
 
@@ -37,10 +37,10 @@ function parse(stream) {
           element.children.push(v);
         }
       }
-      stream.read(); // ]
+      stream.assertRead(["]", "}"]); // ]
     }
   }
-  stream.read(); // )
+  stream.assertRead([")"]); // )
 
   ast.push(element);
   return ast;
